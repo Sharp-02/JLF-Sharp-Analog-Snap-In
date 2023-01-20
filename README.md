@@ -55,8 +55,8 @@ Components:
 
 - DRV5053 Linear Hall Effect Sensors (x2)
 - TLC2254 Op-Amp (x1)
-- 0603 SMD resistors (xxx Value and xxx Value)
-- THT Trimpots (xxx Value and xxx Value)
+- 0603 SMD resistors (22k, 47k, and 100)
+- THT Trimpots (1k and 50k)
 - 90 degree JST PH 4 position connector
 - PCB
 
@@ -70,7 +70,6 @@ All references to the **"front"** of the PCB refer to the side with arrows and v
 and is the side that most components solder to. The **"rear"** is the opposite side, with only the op-amp soldered on it. 
 Inspect the PCB for any manufacturing errors that affect the copper traces near the outer edges and inner ring. 
 Note that the PCB has SMD solder connections on both its front and rear.
-> insert image of two PCBs
 
 Left: Front side of PCB; Right: Rear side of PCB
 
