@@ -60,6 +60,7 @@ Components:
 - 90 degree JST PH 4 position connector
 - PCB
 
+
 ### PCB:
 The PCB (printed circuit board) mounts and connects all the electronics. 
 It is shaped after the Sanwa JLF's PCB that mounts the digital switches. 
@@ -72,6 +73,7 @@ Note that the PCB has SMD solder connections on both its front and rear.
 > insert image of two PCBs
 
 Left: Front side of PCB; Right: Rear side of PCB
+
 
 ### Hall-Effect Sensors:
 This modification uses DRV5053CAQLPG Linear Hall Effect Sensors to measure position of the lever. 
@@ -96,6 +98,10 @@ As the magnet moves along the arrows in front of the sensor, the magnetic field 
 depending on which pole is approaching the sensor. This means that, as the magnets are moved by the stick, 
 the sensor will output a voltage depending on the position of the magnet. 
 In testing, the sensor outputs a range from ~1.2V to ~2.2V. [^PCBTest]
+
+[^PCBTest]:The PCB assembly can be tested independent of the full assembly with only a magnet. 
+Orient the magnet's north and south poles along the arrow outlined in front of the sensor under testing. 
+The output voltage can be measured and compared to the expected range (typically 0V - 3.3V).
 
 
 ### Op-Amp:
@@ -145,10 +151,12 @@ The offest potentiometers adjust the center point of the output voltage. **This 
 If the joystick center drifts off center *or* if the controller can register full motion in one direction but not the opposite 
 (example: 100% left to 80% right), adjust this potentiometer for the required axis. Once soldered, trim the legs below flush to the PCB.
 
+
 ### Resistor Network:
 All resistors used are 0603 SMD resistors (6mil x 3mil Surface Mount Device). 
 Most of the resistors serve the purpose of setting baselines for the offset and gain on the circuit shown above. 
 You will need 22k, 47k, and 100 ohm resistors.
+
 
 ### Snapback Filtering:
 "Snapback" is a mechanical issue of the spring returning the lever *past* the centerpoint
@@ -160,7 +168,6 @@ There are two locations (top and bottom) dedicated to a "snapback filtering" cir
 The 100 ohm resistor is integrated into this circuit. 
 The remaining component is a capacitor *whose value is specific to your setup*. Most sticks will not need filtering on their SASI.
 
-
 ### Connector:
 The JST PH connector ***is a 2.0mm pitch, not the US standard 2.54mm pitch***. 
 This connector *must* be a 90 degree connector and must face out and away from the center of the PCB. 
@@ -170,19 +177,6 @@ From the front of the PCB, with the connector oriented to the right, the connect
 <img src="https://user-images.githubusercontent.com/86936750/213604788-693374d8-303b-455c-b8dd-0f8a2db869b8.png" width=30% height=30%>
 
 
----
-
-  
-### <sub>Notes:</sub>
-
-
-[^PCBTest]:
-
-<sub>
-The PCB assembly can be tested independent of the full assembly with only a magnet. 
-Orient the magnet's north and south poles along the arrow outlined in front of the sensor under testing. 
-The output voltage can be measured and compared to the expected range (typically 0V - 3.3V).
-</sub>
 
 
 ## Mechanical Components and 3D Printing
@@ -198,11 +192,13 @@ polyamide and acetate materials are planned for the future.
 - VALUE x VALUE bar magnet (x2)
 - LENGTH M3 screws (x4)
 
+
 ### Printed Part Material:
 All printed parts are recommended to be printed in Nylon. All parts will undergo a sliding/rubbing motion, 
 and any friction will result in less ideal movements of the lever. 
 If resin printing is available, it is a good alternative. The assembly works fine with PLA/ABS as well, 
 but may require more post processing and frequent application of a dry lubricant.
+
 
 ### Restrictor Gate Replacement:
 The restrictor gate replacement is the base of the SASI. 
@@ -215,6 +211,9 @@ For example, Gamecube Controllers have an *octagonal gate*, whereas the Pro Cont
 Which you use is simply a matter of preference. The files contain multiple gate shapes to be used. 
 There are no notches in the available files [^notches] 
 
+[^notches]: Notches are a controller modification seen in the Super Smash Brothers Melee community that allows for more specific angles to be placed in along the gate. For those interested in implementing controller notches, it may be more difficult to let the stick "lock" into a notch, as the shaft is wide and has a long area that it can slide along. 
+
+
 ### Slider Arms:
 The Slider Arms serve the function of holding the magnets that the hall effect sensors read and, 
 at the same time, wrap around the Sanwa JLF lever such that motions in the lever result in motions of the magnets. 
@@ -223,8 +222,6 @@ They feature a slot in the center into which the ***actuator*** of the lever fit
 > picture of one slider arm on lever ; gif of sliding single arm
 
 The lever may slide along the axis the slot opens, but the lever moves the whole part in the axis of the arms.
-
-
 
 Two slider arms must be printed ***as mirrors of one another***. This allows them to overlap in the center. 
 
@@ -236,18 +233,6 @@ When testing, you may find that the magnet direction must be flipped. Keep this 
 if no tools are available to extract the magnet from the arm (i.e. another stronger magnet). ***TEST THIS BEFORE ASSEMBLY***
 If printing in Nylon or another warp-prone material, use the Slider Arm with Brim file, which limits the warping on the small arms.
 
-------
-
-### <sub>Note:</sub>
-
-[^notches]:
-
-<sub>
-Notches are a controller modification seen in the Super Smash Brothers Melee community 
-that allows for more specific angles to be placed in along the gate. 
-For those interested in implementing controller notches, 
-it may be more difficult to let the stick "lock" into a notch, as the shaft is wide and has a long area that it can slide along. 
-</sub>
 
 
 
@@ -261,6 +246,7 @@ Components stack on top of one another and do not require precise placement of a
 2. Restrictor Gate and Trimming
 3. Arm and Guide Hat
 4. Tuning and Testing
+
 
 ### Step 1- Soldering and Electronics
 #### 1.1- Soldering Front Components
@@ -335,6 +321,7 @@ Remove the Restrictor Gate Replacement and cut/trim the oval protrusions at the 
 **THIS STEP IS CRUCIAL:**
 Attach the Gate Replacement and *verify that the oval parts are flush or below the surface of the replacement gate.*
 
+
 #### 2.2 Replacing the Gate pt. 2
 When viewing the bottom of the JLF, ensure that the 5 pins from the JLF's microswitch board face outward from the top right of the board.
 
@@ -345,6 +332,7 @@ From here, place the soldered PCB into the SASI Restrictor Gate Replacement.
 The op-amp should be facing down and will fit into the rectangular hole, 
 while the 4-pin connector faces in the same direction as the JLF's 5 pin connector.
 
+
 ### Step 3- Arm and Slider Guide/"Hat"
 #### 3.1 Post Processing
 Due to the motions taken by 3D printers, some corners and edges may "blob" outwards and create a wavy surface.
@@ -352,10 +340,12 @@ Take each slider arm and sand or file the sides of the arms such that they are s
 Observe if the same must be done for the Slider Guide. If similar blobs or wavy patterns are seen, file and sand until smooth.
 Do not over-sand, as the looser this tolerance is the less precision there will be from the SASI mod.
 
+
 #### 3.2 Magnet Insertion
 On each arm, identify the hole that will be snug to the bar magnet, but not too tight to insert/extract.
 The ability to extract is crucial, as mistakes may be made that require removal of the magnet.
 Once identified, insert the magnet fully, but ***do not seal the hole***.
+
 
 #### 3.3 Slider Testing
 Orient the arms on the PCB such that the magnets are in front of the two hall effect sensors.
@@ -364,10 +354,14 @@ Remove the Slider Guide and Slider Arms together and move the arms individually 
 If there is no binding and low friction, you are ready for the next step.
 If there is binding, maintain the orientation of the arms, but move the slider guide to a new angle until you find the smoothest motion.
 
+
 #### 3.4 Final Assembly
 Replace the SASI Slider Guide and Arms over the PCB and around the lever.
 Pinch down firmly at each corner and screw in an M3 screw. Repeat this at every corner.
 Finally, feel if the stick is smooth from above. If it is not, return to previous steps to reduce binding.
+
+
+
 
 ### Step 4- Tuning and Testing
 Once assembled, connect the analog X and analog Y outputs from the stick to the board you are using, alongside the ground and 3.3V connection. 
