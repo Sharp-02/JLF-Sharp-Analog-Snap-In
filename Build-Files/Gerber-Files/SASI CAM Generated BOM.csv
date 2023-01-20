@@ -1,0 +1,10 @@
+Qty,Value,Device,Package,Parts,Description,COPYRIGHT,DIGI-KEY_PART_NUMBER_1,DIGI-KEY_PART_NUMBER_2,DIGI-KEY_PART_NUMBER_3,MANUFACTURER_PART_NUMBER,MFR_NAME,POPULARITY,PROD_ID,SF_ID,SPICEMODEL,SPICEPREFIX,SPICEPREFIXL
+2,,C-US025-024X044,C025-024X044,"X_CF, Y_CF","CAPACITOR, American symbol",,,,,,,17,,,,C,
+1,,CONN_04JST-PTH,JST-4-PTH,J1,Multi connection point. Often used as Generic Header-pin footprint for 0.1 inch spaced/style header connections,,,,,,,,WIRE-13531,PRT-09916,,,
+2,100,R-US_R0603,R0603,"X_RF, Y_RF","RESISTOR, American symbol",,,,,,,77,,,,R,
+2,1k,R-TRIMMT93YA,RTRIMT93YA,"XPOTOFF, YPOTOFF",Trimm resistor,,,,,,,2,,,X,,POT
+2,22k,R-US_R0603,R0603,"X_R1, Y_R1","RESISTOR, American symbol",,,,,,,77,,,,R,
+2,47k,R-US_R0603,R0603,"X_R2, Y_R2","RESISTOR, American symbol",,,,,,,77,,,,R,
+2,50k,R-TRIMMT93YA,RTRIMT93YA,"XPOTGAIN, YPOTGAIN",Trimm resistor,,,,,,,2,,,X,,POT
+2,DRV5053CAQLPGMPACK2,DRV5053CAQLPGMPACK2,LPG3_TEX_OFFSET,"DRV_X, DRV_Y",,,,,,,,,,,,,
+1,TLC2254CDR,TLC2254CDR,D14,QUAD_OP_AMP,,Copyright (C) 2022 Ultra Librarian. All rights reserved.,296-1300-1-ND,296-1300-2-ND,296-1300-6-ND,TLC2254CDR,Texas Instruments,,,,,,
