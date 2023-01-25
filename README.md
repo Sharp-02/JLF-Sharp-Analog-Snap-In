@@ -111,7 +111,7 @@ The op-amp serves the purpose of amplifying the voltage from the hall effect sen
 applying an offset through the trimpots as outlined below. Other op-amps *may* work, but are not guaranteed to. 
 
 The op-amp is capable of applying a "gain" to an input voltage, which can be summarized as a direct multiplication. 
-A gain of 2 multiplies the input voltage by 2, and a gain of 4.3 multiplies the input voltage by 4.3. 
+For example, a gain of 2 multiplies the input voltage by 2, and a gain of 4.3 multiplies the input voltage by 4.3. 
 The SASI uses the op-amp to multiply the sensor voltage (range of ~1V) to match the voltage range expected 
 by most controllers and controller boards (3.3V). This gain is altered by the relationship of resistors between 
 the op-amps voltage output, voltage input, and ground. On the SASI mod, this can be tuned by turning the GAIN potetionmeters.
