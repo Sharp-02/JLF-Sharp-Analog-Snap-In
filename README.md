@@ -18,6 +18,9 @@
 
 # Overview
 The Sharp Analog Snap-In, or SASI (pronounced "sassy"), adds analog functionality to the pre-existing Sanwa JLF lever. 
+
+This mod was made primarily to play Smash Bros. on a fightstick. It is a component of an analog fightstick.
+
 By measuring the position of the bottom of the lever, it outputs an analog voltage that can connect to most controller boards (boards that have 3.3V logic). 
 To do this, the mod mounts magnets that move with the lever, and measures their location through a linear hall-effect sensor. 
 This sensor outputs a voltage, which is amplified to match the 0V-3.3V range that most controllers use. 
@@ -187,9 +190,9 @@ polyamide and acetate materials are planned for the future.
 
 - Restrictor Gate Replacement (printed)
 - Slider Arms (x2, printed)
-- Slider Guide/"Hat" (printed)
-- VALUE x VALUE bar magnet (x2)
-- LENGTH M3 screws (x4)
+- Linear Guide/"Hat" (printed)
+- 1/8" x 1/8" x 1/2" bar magnet (x2)
+- 12mm M3 screws (x4)
 
 
 ### Printed Part Material:
@@ -223,15 +226,24 @@ They feature a slot in the center into which the ***actuator*** of the lever fit
 The lever may slide along the axis the slot opens, but the lever moves the whole part in the axis of the arms.
 
 Two slider arms must be printed ***as mirrors of one another***. This allows them to overlap in the center. 
+The 3D slider arm files given come with multiple variations. These variations are as follows:
+- +BRIM- Designed with custom brims to prevent/limit warping during manufacturing on small arm sections
+- +EXPANDED- Designed for materials that shrink when cooling, with an expanded center slot
+- +MACHINABLE- Designed for top-down CNC machining, replacing the magnet cavity with a magnet cradle
 
 These sliders may require post processing, as any imperfections and bumps on the surface can lead to friction and binding in the slider guide. 
 This should be done with sandpaper or careful filing to flatten the sides of the slider arms.
 
 In ***only one side of each arm***, insert a magnet and push it until the magnet cannot go any further. 
 When testing, you may find that the magnet direction must be flipped. Keep this in mind before pushing in too tight or 
-if no tools are available to extract the magnet from the arm (i.e. another stronger magnet). ***TEST THIS BEFORE ASSEMBLY***
+if no tools are available to extract the magnet from the arm (i.e. another stronger magnet). ***TEST THIS BEFORE ASSEMBLY***.
 If printing in Nylon or another warp-prone material, use the Slider Arm with Brim file, which limits the warping on the small arms.
 
+
+### Linear Guide:
+The Linear Guide, also called the "hat", mounts above the PCB and prevents the slider arms from having any rotational motion.
+The guide restricts arm movement to having only single axis motion.
+The hat allows for two independent slider arms to transfer the lever angle into their own linear axis of movement.
 
 
 
