@@ -1,4 +1,4 @@
-SASI v1.1.0 to 1.2.0 changes
+SASI v1.2.0 to 1.2.1 changes
 
 Overview:
 Design changes to shift to SMD soldering techniques over pen soldering
@@ -7,12 +7,8 @@ Increase machinability to allow for machined slider arms
 Hall effect sensor replaced
 Now uses SMD Hall effect sensors below the SASI mod
 	TO-92 -> SOT23				8 Sept 2023:
-	DRV5055A3QLPGM -> DRV5055A1QDBZR	
-			  DRV5055A2EDBZRQ1	
-			  DRV5055A3QDBZR	
-	
-	A1/Z1: 100 mV/mT, ±21-mT Range
-	A2/Z2: 50 mV/mT, ±42-mT Range
+	DRV5055A3QLPGM -> DRV5055A3QDBZR	
+
 	A3/Z3: 25 mV/mT, ±85-mT Range
 
 	DRV5055	A3		Q		LPG		M
@@ -20,22 +16,30 @@ Now uses SMD Hall effect sensors below the SASI mod
 				E		DBZ		R
 				Automotive/Q-1	SOT-23		3000 per package
 			  
+Solidified selection of DRV5055A3 hall effect sensor					v1.2.1
+	A1 saturated too quickly and A2 was less centered than A3
+Rotated DRV5055A3 footprint by 180 degrees						v1.2.1
+	keeps consistency with magnet polarity of previous versions
+Move "SASI vX.X" to top to be visible with parts on					v1.2.1
+Alter "Sharp Analog Snap In" to be visible with parts on				v1.2.1
 
-Move all resistors to the bottom surface						
-Input Resistors now Under Arrows							
-Slightly Moved "SHARP DESIGNS" down							
+Cleared footprint within TLC in anticipation for SASI v2.0				v1.2.0	
+Move all resistors to the bottom surface						v1.2.0
+Input Resistors now Under Arrows							v1.2.0
+Slightly Moved "SHARP DESIGNS" down		
 
-Designed holes in SASI bottom plate for SMD components					
+
+Designed holes in SASI bottom plate for SMD components					v1.2.0
 	4mm round, 5mm for DRV
-Designed holes in SASI bottom plate for THT components					
+Designed holes in SASI bottom plate for THT components					v1.2.0
 	10mm for JST-PH, 7mm for Pots
-Return to no chamfer on arms								
+Return to no chamfer on arms								v1.2.0	
 	large chamfer radius allows for tilting with the THT SASI
-Return to no chamfer on hat by arms
+Return to no chamfer on hat by arms							v1.2.0
 	reduces arm wiggle at ends of movement	
-Reduce guide height tolerance (currently 1mm)
+Reduce guide height tolerance (currently 1mm)						v1.2.0
 	reduces vertical wiggle when switching direction
-Extend Hall Effect Side of Hat Guide
+Extend Hall Effect Side of Hat Guide							v1.2.0
 	longer movement in hat
-Reduce SASI arm magnet width tolerance from 0.4mm to 0.15mm				
-Set wider octagon gate as standard (20.5mm as opposed to 19 mm)		
+Reduce SASI arm magnet width tolerance from 0.4mm to 0.15mm				v1.2.0		
+Set wider octagon gate as standard (20.5mm as opposed to 19 mm)				v1.2.0
