@@ -1,13 +1,24 @@
-Changes from 1.0.0 to 1.0.1
-  
-PCB Changes:
-Named PCB outputs from +,-,S,S to +,-,Y,X
-Added missing trace to XPOTOFF that fixes centering issues
+SASI Changes v1.0.0 to 1.1.0 changes
 
-STL Changes:
-Rounded SASI Restrictor Gate Corners for PCB Housing
-Added Machinable, Expanded, and Brimmed versions of Slider Arms
-  Machinable- Magnet now slots into cavity that can be cut from above the slider arms
-  Expanded- Actuator opening now expanded by 0.5mm to compensate for printed material shrinkage
-  Brimmed-  Added "brims" to now reduce warping and to hold the slider arms in place when machining
-Changed the Slider Arm magnet opening from 3.3mm to 3.81mm
+											                                            Update Enacted
+Hall effect sensor replaced								                        1.1.0
+	DRV5053 replaced with DRV 5055							                    1.1.0	
+		DRV5053CAQLPGM to DRV5055A3QLPGM
+		DRV5055 centers voltage at half of input (3.3 or 5.5) rather than 0V-2V on a wide input range
+
+Changed from 50k pots to 47k potentiometers						            1.1.0
+
+1.0.0 - 1.0.X Printed Part Changes (Carried over to v1.1.0)
+  Named Outputs to +, -, Y, X								                      1.0.1
+  Missing trace connected for XPotOff							                1.0.1
+	Restrictor Gate: PCB Corners are Rounded					              1.0.1
+	Slider Arm:	  Added Machinable, Expanded, 
+                  and Brim Versions of Slider Arms	              1.0.1
+	Slider Arm: 	3.33mm magnet opening -> 3.9mm opening				    1.0.1
+			Side Magnet Entry -> Top Cut Magnet 				                1.0.2
+			End of Slider Arm Chamfered					                        1.0.2
+			Added "E" to expanded hole opening				                  1.0.2
+	Slider Arm: 	3.9mm magnet opening -> 3.575mm opening           1.0.2
+
+Github Proofread and Pictures Updated							                1.1.0
+
