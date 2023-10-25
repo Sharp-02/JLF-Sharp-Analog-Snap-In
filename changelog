@@ -1,12 +1,6 @@
+
 SASI v1.2.0 to 1.2.1 changes
 
-Overview:
-Design changes to shift to SMD soldering techniques over pen soldering
-Increase machinability to allow for machined slider arms
-
-Hall effect sensor replaced
-Now uses SMD Hall effect sensors below the SASI mod
-	TO-92 -> SOT23				8 Sept 2023:
 	DRV5055A3QLPGM -> DRV5055A3QDBZR	
 
 	A3/Z3: 25 mV/mT, ±85-mT Range
@@ -23,7 +17,7 @@ Rotated DRV5055A3 footprint by 180 degrees						v1.2.1
 Move "SASI vX.X" to top to be visible with parts on					v1.2.1
 Alter "Sharp Analog Snap In" to be visible with parts on				v1.2.1
 
-Cleared footprint within TLC in anticipation for SASI v2.0				v1.2.0	
+Cleared footprint within TLC in anticipation for SASI v2.0				v1.2.1	
 Move all resistors to the bottom surface						v1.2.0
 Input Resistors now Under Arrows							v1.2.0
 Slightly Moved "SHARP DESIGNS" down		
