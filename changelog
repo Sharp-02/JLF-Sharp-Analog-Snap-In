@@ -1,24 +1,41 @@
-SASI Changes v1.0.0 to 1.1.0 changes
+SASI v1.1.0 to 1.2.0 changes
 
-											                                            Update Enacted
-Hall effect sensor replaced								                        1.1.0
-	DRV5053 replaced with DRV 5055							                    1.1.0	
-		DRV5053CAQLPGM to DRV5055A3QLPGM
-		DRV5055 centers voltage at half of input (3.3 or 5.5) rather than 0V-2V on a wide input range
+Overview:
+Design changes to shift to SMD soldering techniques over pen soldering
+Increase machinability to allow for machined slider arms
 
-Changed from 50k pots to 47k potentiometers						            1.1.0
+Hall effect sensor replaced
+Now uses SMD Hall effect sensors below the SASI mod
+	TO-92 -> SOT23				8 Sept 2023:
+	DRV5055A3QLPGM -> DRV5055A1QDBZR	
+			  DRV5055A2EDBZRQ1	
+			  DRV5055A3QDBZR	
+	
+	A1/Z1: 100 mV/mT, ±21-mT Range
+	A2/Z2: 50 mV/mT, ±42-mT Range
+	A3/Z3: 25 mV/mT, ±85-mT Range
 
-1.0.0 - 1.0.X Printed Part Changes (Carried over to v1.1.0)
-  Named Outputs to +, -, Y, X								                      1.0.1
-  Missing trace connected for XPotOff							                1.0.1
-	Restrictor Gate: PCB Corners are Rounded					              1.0.1
-	Slider Arm:	  Added Machinable, Expanded, 
-                  and Brim Versions of Slider Arms	              1.0.1
-	Slider Arm: 	3.33mm magnet opening -> 3.9mm opening				    1.0.1
-			Side Magnet Entry -> Top Cut Magnet 				                1.0.2
-			End of Slider Arm Chamfered					                        1.0.2
-			Added "E" to expanded hole opening				                  1.0.2
-	Slider Arm: 	3.9mm magnet opening -> 3.575mm opening           1.0.2
+	DRV5055	A3		Q		LPG		M
+		25mV/mT		Non-Auto	TO-92		3000 per package
+				E		DBZ		R
+				Automotive/Q-1	SOT-23		3000 per package
+			  
 
-Github Proofread and Pictures Updated							                1.1.0
+Move all resistors to the bottom surface						
+Input Resistors now Under Arrows							
+Slightly Moved "SHARP DESIGNS" down							
 
+Designed holes in SASI bottom plate for SMD components					
+	4mm round, 5mm for DRV
+Designed holes in SASI bottom plate for THT components					
+	10mm for JST-PH, 7mm for Pots
+Return to no chamfer on arms								
+	large chamfer radius allows for tilting with the THT SASI
+Return to no chamfer on hat by arms
+	reduces arm wiggle at ends of movement	
+Reduce guide height tolerance (currently 1mm)
+	reduces vertical wiggle when switching direction
+Extend Hall Effect Side of Hat Guide
+	longer movement in hat
+Reduce SASI arm magnet width tolerance from 0.4mm to 0.15mm				
+Set wider octagon gate as standard (20.5mm as opposed to 19 mm)		
