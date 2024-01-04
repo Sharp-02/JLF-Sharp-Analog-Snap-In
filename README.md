@@ -56,8 +56,8 @@ slider arms that follow the lever's position, and the shroud to maintain the mot
 ## Electronics
 Components:
 
-- DRV5053 Linear Hall Effect Sensors (x2)
-- TLC2254 Op-Amp (x1)
+- DRV5053A3 SMD Linear Hall Effect Sensors (x2)
+- TLC2254 SMD Op-Amp (x1)
 - 0603 SMD resistors (22k, 47k, and 100)
 - THT Trimpots (1k and 50k)
 - 90 degree JST PH 4 position connector
@@ -78,7 +78,7 @@ Left: Front side of PCB; Right: Rear side of PCB
 
 
 ### Hall-Effect Sensors:
-This modification uses DRV5053CAQLPG Linear Hall Effect Sensors to measure position of the lever. 
+This modification uses DRV5055A3QDBZ Linear Hall Effect Sensors to measure position of the lever. 
 
 The purpose of the hall effect sensor is to measure the strength of the magnetic field and output a signal. 
 The "hall effect" described makes use of the property of flowing electrons to have an induced force in the presence of a magnetic field, 
@@ -88,15 +88,15 @@ otherwise known as the Lorentz Force. The hall effect is an extrapolation of thi
 There are primarily two types of hall effect sensors seen in use today- the Hall Switch, and the Linear Hall Sensor. 
 The SASI mod uses a Linear Hall Effect sensor, which outputs a voltage relative to the strength of the magnetic field. 
 The sensor used is the DRV5053 whose pins when viewed from the front, from left to right, are: Vcc, GND, and Vout. 
-The "CA" designation indicates that the sensor outputs a voltage of +23mV/mT. 
+The "A3" designation indicates that the sensor outputs a voltage of +25mV/mT. 
 The "Q" designation denotes that the temperature range of the sensor is from -40 C to 125 C. 
-The "LPG" designation indicates the TO-92 package type.
+The "DBZ" designation indicates the SOT-23 package type.
 
-The DRV5053 sensors used are in a TO-92  package (through hole), ***not*** the SOT-23 package (surface mount). 
-These sensors must be soldered on facing the arrows on the PCB. Once soldered, 
-the outstanding legs on the opposite side of the PCB must be trimmed flush. 
+The DRV5053 sensors used are in an SOT-23  package (surface mount), ***not*** the TO-92 package (through hole). 
+Previous versions of the SASI used the TO-92 package.
+These sensors must be soldered below the arrows on the PCB.
 
-As the magnet moves along the arrows in front of the sensor, the magnetic field either grows or lessens, 
+As the magnet moves along the arrows opposite the sensor, the magnetic field either grows or lessens, 
 depending on which pole is approaching the sensor. This means that, as the magnets are moved by the stick, 
 the sensor will output a voltage depending on the position of the magnet. 
 In testing, the sensor outputs a range from ~1.2V to ~2.2V. [^PCBTest]
@@ -139,7 +139,7 @@ Because the op-amp works purely off the analog voltages and circuit design, it c
 The picture above shows the op-amps capability to amplify the blue signal and shift it up such that a 1V - 2V voltage range becomes a 0V - 3.4V voltage range.
 
 
-### Trimpots:
+### Trimmer Potentiometers:
 The trimmer potentiometers, or trimpots, are a type of potentiometer that often come with multi-turn capability at varying levels of precision. 
 Potentiometers are used as a variable resistor, or as a way to connect in the "middle" of a resistor. 
 These properties are utilized in the op-amp circuit shown above.
@@ -148,8 +148,8 @@ These properties are utilized in the op-amp circuit shown above.
 
 These trimpots are used to alter the gain (YPOTGAIN, XPOTGAIN) and the offset (YPOTOFF, XPOTOFF) of the output voltage, 
 and are labeled as such. The gain potentiometers adjust how much movement is required to register as a certain position. 
-**This potentiometer has a value of 50k**. Adjust this potentiometer if the controller cannot register full motions across the X or the Y axis. 
-The offest potentiometers adjust the center point of the output voltage. **This potentiometer has a value of 10k**. 
+**This potentiometer has a value of 47k or 50k**. Adjust this potentiometer if the controller cannot register full motions across the X or the Y axis. 
+The offest potentiometers adjust the center point of the output voltage. **This potentiometer has a value of 1k**. 
 If the joystick center drifts off center *or* if the controller can register full motion in one direction but not the opposite 
 (example: 100% left to 80% right), adjust this potentiometer for the required axis. Once soldered, trim the legs below flush to the PCB.
 
@@ -210,7 +210,7 @@ For example, Gamecube Controllers have an *octagonal gate*, whereas the Pro Cont
 
 <img src="https://user-images.githubusercontent.com/86936750/213606522-1337063e-4ab2-4454-8238-59c7060a8ca8.png" width=30% height=30%>
 
-Which you use is simply a matter of preference. The files contain multiple gate shapes to be used. 
+Which you use is simply a matter of preference. Alternate gate shapes will be added soon. 
 There are no notches in the available files [^notches] 
 
 [^notches]: Notches are a controller modification seen in the Super Smash Brothers Melee community that allows for more specific angles to be placed in along the gate. For those interested in implementing controller notches, it may be more difficult to let the stick "lock" into a notch, as the shaft is wide and has a long area that it can slide along. 
@@ -229,7 +229,6 @@ Two slider arms must be printed ***as mirrors of one another***. This allows the
 The 3D slider arm files given come with multiple variations. These variations are as follows:
 - +BRIM- Designed with custom brims to prevent/limit warping during manufacturing on small arm sections
 - +EXPANDED- Designed for materials that shrink when cooling, with an expanded center slot
-- +MACHINABLE- Designed for top-down CNC machining, replacing the magnet cavity with a magnet cradle
 
 These sliders may require post processing, as any imperfections and bumps on the surface can lead to friction and binding in the slider guide. 
 This should be done with sandpaper or careful filing to flatten the sides of the slider arms.
@@ -389,10 +388,13 @@ If the stick shows that it is moving in reverse, extract the magnet under testin
 Next, make note of two different parameters. The first to observe is the "center point" of the output.
 On a joystick tester, it is as simple as checking if the joystick rests at the middle of the axis you are testing.
 On an oscilloscope, the "middle" is a level of 1.67V (or 2.5V if you reference a 5V supply). 
-If the joystick isn't centered, turn the axis offset potentiometer (right side)such that the signal becomes centered.
+If the joystick isn't centered, turn the axis offset potentiometer (right side) such that the signal becomes centered.
+Turning the axis offset potentiometers clockwise will lower the middle level, 
+while turning counterclockwise raises the middle level.
 
 Then, once again, move the joystick all the way in both directions of the axis you are testing. 
 If the joystick does not reach the maximum, hold the joystick at the maximum and turn the axis gain potentiometer until it reaches it's maximum. 
+Turning clockwise raises the "sensitivity" of the joystick, while turning counterclockwise lowers it.
 Once this threshold is hit, hold the joystick in the opposite direction and observe if it reaches the opposite maximum. 
 If it does, still read the next paragraph. If it does not, release the joystick and repeat the steps of the previous paragraph.
 
