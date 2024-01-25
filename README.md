@@ -8,7 +8,7 @@
 - Full analog range from 0V-3.3V for Joystick X and Y
 - Drop-in modification for easy installation
 - Designed for fully 3D-Printable mechanical assembly
-- Maintains original digital signals for both D-Pad and 
+- Maintains original digital signals for both D-Pad and analog
 - Low profile and doesn't add much height to the stock joystick assembly
 - No potentiometers that wear down with usage
 - Linear hall effect sensors with sliding magnet mounts
