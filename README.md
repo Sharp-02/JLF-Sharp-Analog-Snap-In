@@ -1,7 +1,10 @@
 # Sharp Analog Snap-In (SASI) Mod
-### A full analog addition to the Sanwa JLF that replaces your lever's restrictor gate
+### A fully analog addition to the Sanwa JLF that replaces your lever's restrictor gate. Current Version: 1.2.1
 <img src="https://user-images.githubusercontent.com/86936750/213596998-4c9b40dc-2576-41d1-aef6-5747094e6abe.jpg" width=50% height=50%>
 
+### Disclaimer
+This repo is undergoing construction. User guides, troubleshooting, and technical explanations are to be expected in the coming months. Files to replicate this are not.
+To implement the SASI in your builds, please visit https://shopsharpdesigns.etsy.com
 
 
 # Features
@@ -10,10 +13,11 @@
 - Designed for fully 3D-Printable mechanical assembly
 - Maintains original digital signals for both D-Pad and analog
 - Low profile and doesn't add much height to the stock joystick assembly
-- No potentiometers that wear down with usage
+- No potentiometers that wear down with joystick usage
 - Linear hall effect sensors with sliding magnet mounts
 - "Snapback Filtering" capability
 - Custom PCB for footprint and consistent reproduction
+
 
 
 # Overview
@@ -56,29 +60,22 @@ slider arms that follow the lever's position, and the shroud to maintain the mot
 ## Electronics
 Components:
 
-- DRV5053A3 SMD Linear Hall Effect Sensors (x2)
-- TLC2254 SMD Op-Amp (x1)
-- 0603 SMD resistors (22k, 47k, and 100)
-- THT Trimpots (1k and 50k)
+- DRV5055 SMD Linear Hall Effect Sensors (x2)
+- TLC2254 SMD Rail-to-rail Op-Amp (x1)
+- 22k 0603 SMD resistors
+- THT Trimpots (1k and 50k/47k)
 - 90 degree JST PH 4 position connector
 - PCB
 
 
 ### PCB:
 The PCB (printed circuit board) mounts and connects all the electronics. 
-It is shaped after the Sanwa JLF's PCB that mounts the digital switches. 
+It is shaped to be widely compatible with multiple form factors. 
 On the PCB are the hall-effect sensors that measure the lever position, 
 as well as potentiometers that determine the offset and voltage swing of the individual X and Y axes. 
-All references to the **"front"** of the PCB refer to the side with arrows and values printed on, 
-and is the side that most components solder to. The **"rear"** is the opposite side, with only the op-amp soldered on it. 
-Inspect the PCB for any manufacturing errors that affect the copper traces near the outer edges and inner ring. 
-Note that the PCB has SMD solder connections on both its front and rear.
-
-Left: Front side of PCB; Right: Rear side of PCB
-
 
 ### Hall-Effect Sensors:
-This modification uses DRV5055A3QDBZ Linear Hall Effect Sensors to measure position of the lever. 
+This modification uses DRV5055 Linear Hall Effect Sensors to measure position of the lever. 
 
 The purpose of the hall effect sensor is to measure the strength of the magnetic field and output a signal. 
 The "hall effect" described makes use of the property of flowing electrons to have an induced force in the presence of a magnetic field, 
@@ -92,9 +89,8 @@ The "A3" designation indicates that the sensor outputs a voltage of +25mV/mT.
 The "Q" designation denotes that the temperature range of the sensor is from -40 C to 125 C. 
 The "DBZ" designation indicates the SOT-23 package type.
 
-The DRV5053 sensors used are in an SOT-23  package (surface mount), ***not*** the TO-92 package (through hole). 
+The DRV5055 sensors used are in an SOT-23  package (surface mount), ***not*** the TO-92 package (through hole). 
 Previous versions of the SASI used the TO-92 package.
-These sensors must be soldered below the arrows on the PCB.
 
 As the magnet moves along the arrows opposite the sensor, the magnetic field either grows or lessens, 
 depending on which pole is approaching the sensor. This means that, as the magnets are moved by the stick, 
@@ -157,7 +153,7 @@ If the joystick center drifts off center *or* if the controller can register ful
 ### Resistor Network:
 All resistors used are 0603 SMD resistors (6mil x 3mil Surface Mount Device). 
 Most of the resistors serve the purpose of setting baselines for the offset and gain on the circuit shown above. 
-You will need 22k, 47k, and 100 ohm resistors.
+You will need 22kohm resistors.
 
 
 ### Snapback Filtering:
@@ -190,7 +186,6 @@ polyamide and acetate materials are planned for the future.
 
 - Restrictor Gate Replacement (printed)
 - Slider Arms (x2, printed)
-- Linear Guide/"Hat" (printed)
 - 1/8" x 1/8" x 1/2" bar magnet (x2)
 - 12mm M3 screws (x4)
 
@@ -221,14 +216,7 @@ The Slider Arms serve the function of holding the magnets that the hall effect s
 at the same time, wrap around the Sanwa JLF lever such that motions in the lever result in motions of the magnets. 
 They feature a slot in the center into which the ***actuator*** of the lever fits into.
 
-> picture of one slider arm on lever ; gif of sliding single arm
-
 The lever may slide along the axis the slot opens, but the lever moves the whole part in the axis of the arms.
-
-Two slider arms must be printed ***as mirrors of one another***. This allows them to overlap in the center. 
-The 3D slider arm files given come with multiple variations. These variations are as follows:
-- +BRIM- Designed with custom brims to prevent/limit warping during manufacturing on small arm sections
-- +EXPANDED- Designed for materials that shrink when cooling, with an expanded center slot
 
 These sliders may require post processing, as any imperfections and bumps on the surface can lead to friction and binding in the slider guide. 
 This should be done with sandpaper or careful filing to flatten the sides of the slider arms.
@@ -239,141 +227,14 @@ if no tools are available to extract the magnet from the arm (i.e. another stron
 If printing in Nylon or another warp-prone material, use the Slider Arm with Brim file, which limits the warping on the small arms.
 
 
-### Linear Guide:
-The Linear Guide, also called the "hat", mounts above the PCB and prevents the slider arms from having any rotational motion.
-The guide restricts arm movement to having only single axis motion.
-The hat allows for two independent slider arms to transfer the lever angle into their own linear axis of movement.
-
-
-
 ## Assembly and Installation
 
 Assembly and installation of the SASI mod is fairly straightforward. Very little modification to the JLF lever is required. 
 Components stack on top of one another and do not require precise placement of any parts.
 
-#### Steps:
-1. Soldering and Electronics
-2. Restrictor Gate and Trimming
-3. Arm and Guide Hat
-4. Tuning and Testing
 
 
-### Step 1- Soldering and Electronics
-#### 1.1- Soldering Front Components
-This section is on soldering the front face of the PCB.
-
-The front of the PCB has multiple surface mount device pads (SMDs) for resistors. Start by "tinning" every **square** pad. 
-This is done by heating the pad with an iron and then applying a very small amount of solder to the pad. 
-To solder a resistor in place, first identify the two solder pads that correspond to a single resistor placement. 
-Prepare an 0603 SMD resistor of the proper value with metal tweezers onto the PCB, near but not on the pads, with the dark/labeled side facing up. 
-Re-melt the solder on the set of pads you are soldering to by placing the iron's tip in-between them. 
-Gently push the resistor into the melted solder until the resistor is in place. 
-Hold the resistors in place as you remove the iron. 
-Repeat this process for every resistor.
-
-Next, it is best to solder the JST-PH connector.
-Insert the connector with the connection port facing outward and away from the center.
-Flip the PCB and hold or place the connector such that a solder can be performed on the rear side.
-Solder the pins down, making sure that the connector is solidly in place and not tilted.
-
-After this, solder the trimmer potentiometers.
-Take care that each resistor put in is the correct value. 
-Bend the legs below such that the trimpots will not move, and flip the board upside-down.
-Solder each leg to the through hole.
-Trim the legs flush to the bottom of the PCB.
-
-For soldering the hall effect sensors, a similar approach can be taken to that of the potentiometers.
-Make sure to mound the hall effect sensors such that the small side faces towards the arrow near it.
-Insert the hall effect sensor *all the way*. When inserted, there should only be ~1mm of the legs above the PCB.
-Once again, bend the legs below so that the hall effect sensor does not move and solder them in place.
-
-*If you need to solder a capacitor*, perform the same steps as the hall effect sensor soldering.
-This, however, is not a snapback elimination guide. 
-The process to analyze snapback, though, is the same as with a thumbstick.
-
-
-#### 1.2 Soldering Rear Component
-
-On the back of the lever are the op-amp pads. The TLC2254 op-amp is the only op amp used, and is the only component on the back of the PCB.
-Observe and make note of the small half-circle mark at the top of the outline.
-The op-amp component will have a marking on one of its sides. This marking can be a divot, dot, or line.
-
-<img src="https://user-images.githubusercontent.com/86936750/213618651-0b68396d-168f-463d-97b4-d7d9ba2b29a3.jpg" width=30% height=30%> <img src="https://user-images.githubusercontent.com/86936750/213618665-e37f0034-5562-400c-94bb-9d83ab8659f9.jpg" width=30% height=30%> <img src="https://user-images.githubusercontent.com/86936750/213618661-382a77d4-efb8-437d-804e-c6345913860a.jpg" width=30% height=30%>
-
-
-Start by tinning the solder pads in a similar way to the SMD resistors outlined above.
-Do not let any of the solder bridge from pad to pad. There should be very little solder on each pad.
-Use tweezers to position the op-amp such that each leg is over every pad.
-Remelt one corner pad with the iron and gently press the op-amp into place.
-Let the corner pad cool, and then repeat the process with the opposite corner pad.
-If you are unhappy with the positioning, adjust the two corners until you are satisfied.
-Remelt the solder at each solder pad, letting it flow and cover the leg it is on.
-The time at each leg should be minimal, and should not take a long time.
-
-
-#### 1.3 Making a connector
-
-To make a connector to the PCB, prepare four wires of equal length.
-The recommended wire and gauge to use is 30AWG stranded wire.
-This allows for flexing and movement of the wires with less wear.
-Strip one end of each wire and crimp a female JST-PH connector onto the end.
-Make sure the inner crimp clamps onto the stripped wire and the outer crimp clamps down the silicone sheathing.
-Insert this wire into a female JST-PH connector. 
-Repeat this process with the other three wires.
-
-
-### Step 2- Restrictor Gate and Trimming
-#### 2.1 Gate Replacement and Trimming
-Remove the original restrictor gate from the Sanwa JLF. This is typically a clear part.
-Snap on the SASI Restrictor Gate Replacement.
-Mark the oval protrusions at the height of the restrictor gate replacement.
-Remove the Restrictor Gate Replacement and cut/trim the oval protrusions at the mark.
-**THIS STEP IS CRUCIAL:**
-Attach the Gate Replacement and *verify that the oval parts are flush or below the surface of the replacement gate.*
-
-
-#### 2.2 Replacing the Gate pt. 2
-When viewing the bottom of the JLF, ensure that the 5 pins from the JLF's microswitch board face outward from the top right of the board.
-
-The orientation of the restrictor gate is crucial. Identify the eccentric rectangular hole in the restrictor gate.
-Make sure that this hole is on the ***left*** side of the JLF, opposite from the 5 pins.
-
-From here, place the soldered PCB into the SASI Restrictor Gate Replacement. 
-The op-amp should be facing down and will fit into the rectangular hole, 
-while the 4-pin connector faces in the same direction as the JLF's 5 pin connector.
-
-
-### Step 3- Arm and Slider Guide/"Hat"
-#### 3.1 Post Processing
-Due to the motions taken by 3D printers, some corners and edges may "blob" outwards and create a wavy surface.
-Take each slider arm and sand or file the sides of the arms such that they are straight and smooth.
-Observe if the same must be done for the Slider Guide. If similar blobs or wavy patterns are seen, file and sand until smooth.
-Do not over-sand, as the looser this tolerance is the less precision there will be from the SASI mod.
-
-
-#### 3.2 Magnet Insertion
-On each arm, identify the hole that will be snug to the bar magnet, but not too tight to insert/extract.
-The ability to extract is crucial, as mistakes may be made that require removal of the magnet.
-Once identified, insert the magnet fully, but ***do not seal the hole***.
-
-
-#### 3.3 Slider Testing
-Orient the arms on the PCB such that the magnets are in front of the two hall effect sensors.
-Gently place the Slider Guide over the slider arms, letting the slider arms slot into the slider guide. 
-Remove the Slider Guide and Slider Arms together and move the arms individually to see if there are any binding areas.
-If there is no binding and low friction, you are ready for the next step.
-If there is binding, maintain the orientation of the arms, but move the slider guide to a new angle until you find the smoothest motion.
-
-
-#### 3.4 Final Assembly
-Replace the SASI Slider Guide and Arms over the PCB and around the lever.
-Pinch down firmly at each corner and screw in an M3 screw. Repeat this at every corner.
-Finally, feel if the stick is smooth from above. If it is not, return to previous steps to reduce binding.
-
-
-
-
-### Step 4- Tuning and Testing
+## Tuning and Testing
 Once assembled, connect the analog X and analog Y outputs from the stick to the board you are using, alongside the ground and 3.3V connection. 
 The connection method varies from board to board. Check with the board manufacturer for the recommended connection method to analog stick inputs.
 
